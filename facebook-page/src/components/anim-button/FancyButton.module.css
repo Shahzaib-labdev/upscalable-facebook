@@ -1,0 +1,83 @@
+.btn,
+.btn * {
+  border: 0 solid;
+  box-sizing: border-box;
+}
+
+.btn {
+  background-color: var(--bg-original, #f2c94c);
+  color: var(--text-original, #000);
+  cursor: pointer;
+  font-family: var(--font-jetbrains) !important;
+  font-weight: 900;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  border: 1px solid #000;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .btn {
+    font-size: 0.75rem;
+  }
+}
+
+.btn:disabled {
+  cursor: default;
+  opacity: 0.6;
+}
+
+/* Original layer */
+.original {
+  background: var(--bg-original, #f2c94c);
+  color: var(--text-original, #000);
+  display: grid;
+  inset: 0;
+  place-content: center;
+  position: absolute;
+  transition: transform 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+  z-index: 2;
+}
+
+.btn:hover .original {
+  transform: translateY(120%);
+}
+
+/* Letters layer */
+.letters {
+  display: inline-flex;
+  z-index: 1;
+}
+
+.letters span {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition:
+    transform 0.3s cubic-bezier(0.87, 0, 0.13, 1),
+    opacity 0.3s,
+    color 0.3s;
+  color: var(--text-hover, #000);
+}
+
+/* For even letters */
+.letters span:nth-child(2n) {
+  transform: translateY(10px);
+}
+
+.btn:hover .letters span {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--text-hover, #fff);
+}
+
+.btn:hover {
+  background-color: var(--bg-hover, #000);
+}
