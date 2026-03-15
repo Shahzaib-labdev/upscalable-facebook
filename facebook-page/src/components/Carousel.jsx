@@ -2,60 +2,43 @@
 
 import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import NextImage from 'next/image';
-import myImage from './images/fbook.jpg';
-
-// Core Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
+import NextImage from 'next/image';
+import myImage from './images/fbook.jpg'; // Ensure this path is correct
 
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 
 export default function Carousel() {
-  const containerStyle = {
-    width: '100%',
-    height: '400px',
-    backgroundColor: '#000',
-  };
-
-  const slideStyle = {
-    textAlign: 'center',
-    fontSize: '18px',
-    background: '#444',
-    color: '#fff',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  };
-
   return (
-    <div style={containerStyle}>
+    /* containerStyle replaced with Tailwind classes */
+    <div className="w-full h-[400px] bg-black">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2000, // Swipes every 1000ms (1 second)
+          delay: 3000,
           disableOnInteraction: false,
         }}
-        speed={800} // The speed of the sliding animation itself (0.8s)
-        loop={true} // Ensures the carousel doesn't stop at the last slide
-        pagination={{
-          clickable: true,
-        }}
-        navigation={true}
+        speed={800}
+        loop={true}
         modules={[Autoplay, Pagination, Navigation]}
-        className="mySwiper"
-        style={{ height: '100%', width: '100%' }}
+        className="h-full w-full" /* Replaced inline style */
       >
         {[1, 2, 3, 4, 5].map((num) => (
-          <SwiperSlide key={num} style={slideStyle} positoin="relative">
+          /* slideStyle replaced with Tailwind flex and text classes */
+          <SwiperSlide 
+            key={num} 
+            className="flex items-center justify-center text-center text-[18px] bg-[#444] text-white"
+          >
             <NextImage 
               src={myImage} // From your previous imports
               alt={`Slide ${num}`}
               fill 
               className="object-cover"
             />
+            Slide {num}
           </SwiperSlide>
         ))}
       </Swiper>

@@ -4,12 +4,14 @@ import React, { useEffect, useRef } from "react";
 import NextImage from "next/image";
 import { gsap } from "gsap";
 import myImage from "./images/fbook.jpg"; // Ensure this path is correct
+import scrollTrigger from "gsap/ScrollTrigger";
 
 const Copy = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
 
   useEffect(() => {
+    gsap.registerPlugin(scrollTrigger);
     // Entrance animation for both sections
     const sections = [section1Ref.current, section2Ref.current];
     
@@ -41,7 +43,7 @@ const Copy = () => {
               Why Facebook Advertising <br />
               <span className="text-blue-600">Still Wins in 2026</span>
             </h2>
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 space-y-6 antialised">
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
@@ -95,7 +97,7 @@ const Copy = () => {
               Our Framework: <br /> From Optimization to <br />
               <span className="text-blue-600">Domination</span>
             </h2>
-            <div className="mt-8 space-y-6">
+            <div className="mt-8 space-y-6 antialised">
               <div className="flex gap-4">
                 <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
