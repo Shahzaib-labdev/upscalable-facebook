@@ -1,24 +1,20 @@
 import React from "react";
 import Header from "@/src/components/Header";
 import Hero from "@/src/components/Hero";
+import Copy from "@/src/components/Copy";
+import Carousel from "@/src/components/Carousel";
 import WhoWeAre from "@/src/components/WhoWeAre";
-import HowItWorks from "@/src/components/HowItWorks";
-import Portfolio from "@/src/components/Portfolio";
-import HomeCTA from "@/src/components/HomeCTA";
 import PricingSection from "@/src/components/PricingSection";
 import Testimonials from "@/src/components/Testimonials";
-import Carousel from "@/src/components/Carousel";
 
 const Home = () => {
   return (
     <main>
       <Header />
       <Hero />
+      <Copy />
       <Carousel />
       <WhoWeAre />
-      <HowItWorks />
-      <Portfolio />
-      <HomeCTA />
       <PricingSection />
       <Testimonials />
     </main>
