@@ -7,12 +7,14 @@ import Portfolio from "@/src/components/Portfolio";
 import HomeCTA from "@/src/components/HomeCTA";
 import PricingSection from "@/src/components/PricingSection";
 import Testimonials from "@/src/components/Testimonials";
+import Carousel from "@/src/components/Carousel";
 
 const Home = () => {
   return (
     <main>
       <Header />
       <Hero />
+      <Carousel />
       <WhoWeAre />
       <HowItWorks />
       <Portfolio />
