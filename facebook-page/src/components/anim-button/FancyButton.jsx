@@ -6,7 +6,7 @@ import styles from "@/src/components/anim-button/FancyButton.module.css";
 const FancyButton = ({
   children = "Work with us",
   onClick,
-  bgOriginal = "#f2c94c",
+  bgOriginal = "#2563eb",
   textOriginal = "#000",
   bgHover = "#000",
   textHover = "#fff",

@@ -3,7 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import NextImage from "next/image";
 import { gsap } from "gsap";
-import myImage from "./images/fbook.jpg"; // Ensure this path is correct
+import myImage from "./images/fbook.jpg";
 import scrollTrigger from "gsap/ScrollTrigger";
 
 const Copy = () => {
@@ -41,7 +41,7 @@ const Copy = () => {
           <div className="anim-item">
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
               Why Facebook Advertising <br />
-              <span className="text-blue-600">Still Wins in 2026</span>
+              <span className="bg-brand-blue text-white px-2 py-1">Still Wins in 2026</span>
             </h2>
             <div className="mt-8 space-y-6 antialised">
               <div className="flex gap-4">

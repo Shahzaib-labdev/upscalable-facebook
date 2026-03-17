@@ -18,26 +18,26 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full fixed top-4 left-0 z-50 bg-transparent">
-      <div className="max-w-[85rem] mx-auto px-4 bg-white/80 backdrop-blur-sm shadow-sm rounded-full">
+    <header className="w-full fixed top-0 left-0 z-50 bg-white">
+      <div className="max-w-340 mx-auto px-4 bg-white/80 backdrop-blur-sm">
         {/* Main Header Container */}
-        <div className="flex items-center justify-between bg-transparent px-6 py-3">
+        <div className="flex items-center justify-between bg-white/80 backdrop-blur-sm h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img
-              src="https://www.upscalable.co/assets/images/logo.png" // replace with your logo path
+              src="https://www.upscalable.co/assets/images/logo.png"
               alt="Logo"
               className="h-10 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8 font-jetbrains text-sm tracking-wide text-gray-600">
+          <nav className="hidden lg:flex items-center gap-8 font-jetbrains text-sm tracking-wide text-black">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="hover:text-black transition"
+                className="hover:text-blue-600 transition"
               >
                 {link.name.toUpperCase()}
               </Link>
@@ -54,10 +54,10 @@ export default function Header() {
               <MessageCircle size={14} />
             </button>
             <FancyButton
-              bgOriginal="#f2c94c"
-              textOriginal="#000"
-              bgHover="#f5f7fa"
-              textHover="#2b2b2b"
+              bgOriginal="#2563eb"
+              textOriginal="#f5f7fa"
+              bgHover="#2b2b2b"
+              textHover="#f5f7fa"
             >
               Work with us
             </FancyButton>

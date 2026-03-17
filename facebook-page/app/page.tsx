@@ -15,8 +15,6 @@ const Home = () => {
       <Copy />
       <Carousel />
       <WhoWeAre />
-      <PricingSection />
-      <Testimonials />
     </main>
   );
 };

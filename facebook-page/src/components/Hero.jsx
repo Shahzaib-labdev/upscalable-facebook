@@ -1,13 +1,12 @@
 "use client";
 
-import React from "react";
-import Image from "next/image";
 import FancyButton from "@/src/components/anim-button/FancyButton";
+import Image from "next/image";
 import myImage from './images/fbook.jpg';
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative w-full h-[600px] flex items-center justify- overflow-hidden">
       
       {/* LAYER 1: The Background Image */}
       <div className="absolute inset-0 z-0">

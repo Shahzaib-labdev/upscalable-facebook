@@ -5,7 +5,7 @@
 }
 
 .btn {
-  background-color: var(--bg-original, #f2c94c);
+  background-color: var(--bg-original, var(--color-brand-blue));
   color: var(--text-original, #000);
   cursor: pointer;
   font-family: var(--font-jetbrains) !important;
@@ -37,8 +37,8 @@
 
 /* Original layer */
 .original {
-  background: var(--bg-original, #f2c94c);
-  color: var(--text-original, #000);
+  background: var(--bg-original, var(--color-brand-blue));
+  color: var(--text-original, var(--color-brand-gray-light));
   display: grid;
   inset: 0;
   place-content: center;
@@ -64,7 +64,7 @@
     transform 0.3s cubic-bezier(0.87, 0, 0.13, 1),
     opacity 0.3s,
     color 0.3s;
-  color: var(--text-hover, #000);
+  color: var(--text-hover, var(--color-brand-gray-light));
 }
 
 /* For even letters */
@@ -75,9 +75,9 @@
 .btn:hover .letters span {
   opacity: 1;
   transform: translateY(0);
-  color: var(--text-hover, #fff);
+  color: var(--text-hover, var(--color-brand-gray-light));
 }
 
 .btn:hover {
-  background-color: var(--bg-hover, #000);
+  background-color: var(--bg-hover, var(--color-brand-gray-dark));
 }

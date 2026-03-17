@@ -1,60 +1,28 @@
 @import "tailwindcss";
 
+@theme {
+  /* This maps your custom variables to Tailwind names */
+  /* Now you can use bg-brand-blue, text-brand-gray-light, etc. */
+  --color-brand-blue: var(--color-one);
+  --color-brand-gray-light: var(--color-two);
+  --color-brand-gray-dark: var(--color-three);
+}
+
+:root {
+  /* Updated to match Tailwind's blue-600 (#2563eb) */
+  --color-one: #2563eb;   
+  --color-two: #f5f7fa; /* Keep light gray */
+  --color-three: #2b2b2b;  /* Keep dark gray */
+}
+
 @layer base {
   body {
+    @apply bg-brand-gray-light text-brand-gray-dark antialiased;
     font-family: var(--font-inter), sans-serif;
   }
 }
 
-@layer utilities {
-  /* Text colors */
-  .text-color-one {
-    color: var(--color-one);
-  }
-  .text-color-two {
-    color: var(--color-two);
-  }
-  .text-color-three {
-    color: var(--color-three);
-  }
-  .text-color-four {
-    color: var(--color-four);
-  }
-
-  /* Background colors */
-  .bg-color-one {
-    background-color: var(--color-one);
-  }
-  .bg-color-two {
-    background-color: var(--color-two);
-  }
-  .bg-color-three {
-    background-color: var(--color-three);
-  }
-  .bg-color-four {
-    background-color: var(--color-four);
-  }
-}
-
-
-/* 🎨 Color variables */
-:root {
-  --color-one: #2f80ed;   /* blue */
-  --color-two: #f2c94c;   /* yellow */
-  --color-three: #f5f7fa; /* light gray */
-  --color-four: #2b2b2b;  /* dark gray */
-}
-
-body {
-  background-color: var(--color-three);
-}
-
-.font-inter {
-  font-family: var(--font-inter) !important;
-}
-.font-jetbrains {
-  font-family: var(--font-jetbrains) !important;
-}
+/* Specific Font Utility Classes */
 .font-signature {
-  font-family: var(--font-signature) !important;
+  font-family: var(--font-signature), cursive;
 }
