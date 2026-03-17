@@ -4,8 +4,6 @@ import Hero from "@/src/components/Hero";
 import Copy from "@/src/components/Copy";
 import Carousel from "@/src/components/Carousel";
 import WhoWeAre from "@/src/components/WhoWeAre";
-import PricingSection from "@/src/components/PricingSection";
-import Testimonials from "@/src/components/Testimonials";
 
 const Home = () => {
   return (

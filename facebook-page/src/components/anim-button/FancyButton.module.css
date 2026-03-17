@@ -6,7 +6,7 @@
 
 .btn {
   background-color: var(--bg-original, var(--color-brand-blue));
-  color: var(--text-original, #000);
+  color: var(--text-original, var(--color-brand-gray-light));
   cursor: pointer;
   font-family: var(--font-jetbrains) !important;
   font-weight: 900;
