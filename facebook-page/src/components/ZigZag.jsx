@@ -6,7 +6,7 @@ import { gsap } from "gsap";
 import myImage from "./images/fbook.jpg";
 import scrollTrigger from "gsap/ScrollTrigger";
 
-const Copy = () => {
+const ZigZag = () => {
   const section1Ref = useRef(null);
   const section2Ref = useRef(null);
 
@@ -45,7 +45,7 @@ const Copy = () => {
             </h2>
             <div className="mt-8 space-y-6 antialised">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
+                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
                   <strong className="text-gray-900 block">Precision Targeting</strong>
                   Reaching the demographic that mirrors your highest-value customers.
@@ -53,7 +53,7 @@ const Copy = () => {
               </div>
             
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
+                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
                   <strong className="text-gray-900 block">Creative Velocity</strong>
                   Rapid testing of visual assets to identify winners before wasting budget.
@@ -61,7 +61,7 @@ const Copy = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
+                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
                   <strong className="text-gray-900 block">Data-Driven Attribution</strong>
                   Understanding exactly where every dollar goes and what it returns.
@@ -70,7 +70,7 @@ const Copy = () => {
             </div>
           </div>
 
-          <div className="anim-item relative aspect-square w-full max-w-[500px] lg:ml-auto">
+          <div className="anim-item relative aspect-square w-full max-w-125 lg:ml-auto">
             <div className="absolute inset-0 bg-blue-50 rounded-3xl -rotate-3 scale-105" />
             <div className="relative h-full w-full rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <NextImage src={myImage} alt="Marketing Strategy" fill className="object-cover" />
@@ -84,7 +84,7 @@ const Copy = () => {
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Image on the left now */}
-          <div className="anim-item relative aspect-square w-full max-w-[500px] order-2 lg:order-1">
+          <div className="anim-item relative aspect-square w-full max-w-125 order-2 lg:order-1">
             <div className="absolute inset-0 bg-blue-100 rounded-3xl rotate-3 scale-105" />
             <div className="relative h-full w-full rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
               <NextImage src={myImage} alt="Creative Velocity" fill className="object-cover" />
@@ -99,7 +99,7 @@ const Copy = () => {
             </h2>
             <div className="mt-8 space-y-6 antialised">
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
+                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
                   <strong className="text-gray-900 block">Algorithmic Optimization</strong>
                   Letting machine learning do the heavy lifting for audience refinement.
@@ -107,7 +107,7 @@ const Copy = () => {
               </div>
             
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
+                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
                   <strong className="text-gray-900 block">Omnichannel Integration</strong>
                   Syncing your Facebook efforts with Instagram and Messenger for a seamless brand experience.
@@ -115,7 +115,7 @@ const Copy = () => {
               </div>
 
               <div className="flex gap-4">
-                <div className="flex-shrink-0 w-1 bg-blue-600 rounded-full" />
+                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
                 <p className="text-gray-600">
                   <strong className="text-gray-900 block">ROI-First Mindset</strong>
                   Every campaign is measured by its contribution to your specific business goals, not just vanity metrics.
@@ -130,4 +130,4 @@ const Copy = () => {
   );
 };
 
-export default Copy;
+export default ZigZag;

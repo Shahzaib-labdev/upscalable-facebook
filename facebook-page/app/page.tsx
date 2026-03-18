@@ -1,8 +1,8 @@
 import Header from "@/src/components/Header";
 import Hero from "@/src/components/Hero";
 import Banner from "@/src/components/Banner";
-import Copy from "@/src/components/Copy";
-import WhoWeAre from "@/src/components/WhoWeAre";
+import ZigZag from "@/src/components/ZigZag";
+import Cards from "@/src/components/Cards";
 
 const Home = () => {
   return (
@@ -10,8 +10,8 @@ const Home = () => {
       <Header />
       <Hero />
       <Banner />
-      <Copy />
-      <WhoWeAre />
+      <ZigZag />
+      <Cards />
     </main>
   );
 };

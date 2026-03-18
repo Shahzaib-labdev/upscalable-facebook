@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { Phone, MessageCircle, Menu, X} from "lucide-react";
 import { useState } from "react";

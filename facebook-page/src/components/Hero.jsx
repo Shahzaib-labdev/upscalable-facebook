@@ -9,6 +9,7 @@ const Hero = () => {
 
   useEffect(() => {
     // We target all children with the "hero-anim" class inside our ref
+    // Animation 1: Fade in and slide up each item with a nice stagger
     const items = containerRef.current.querySelectorAll(".hero-anim");
 
     gsap.from(items, {
@@ -39,12 +40,7 @@ const Hero = () => {
 
       {/* LAYER 2: The Content Stack (Now with dark text for contrast) */}
       <div ref={containerRef} className="relative z-20 max-w-4xl mx-auto px-6 text-center">
-        
-        <div className="hero-anim">
-          <span className="inline-block bg-brand-blue text-white px-6 py-2 rounded-2xl mb-6 shadow-xl shadow-blue-100 font-bold text-sm tracking-wide">
-            FACEBOOK MARKETING 2026
-          </span>
-        </div>
+
 
         <h1 className="hero-anim text-5xl md:text-7xl font-extrabold text-gray-900 tracking-tight leading-tight">
           Scale Your Brand <br /> 
