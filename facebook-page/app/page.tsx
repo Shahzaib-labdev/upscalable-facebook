@@ -1,4 +1,3 @@
-import React from "react";
 import Header from "@/src/components/Header";
 import Hero from "@/src/components/Hero";
 import Banner from "@/src/components/Banner";

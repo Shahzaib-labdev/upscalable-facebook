@@ -14,7 +14,7 @@ const partners = [
 
 export default function Banner() {
   return (
-    <div className="w-full h-20 bg-brand-blue border-gray-100 flex items-center">
+    <div className="w-full h-12 bg-brand-blue border-gray-100 flex items-center">
       <Swiper
         modules={[Autoplay]}
         /* Sliding Settings */
