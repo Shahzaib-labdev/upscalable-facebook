@@ -1,17 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, MessageCircle, Menu, X, ArrowRight } from "lucide-react";
+import { Phone, MessageCircle, Menu, X} from "lucide-react";
 import { useState } from "react";
 import FancyButton from "@/src/components/anim-button/FancyButton";
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "" },
-  { name: "Services", href: "" },
-  { name: "Reviews", href: "" },
-  { name: "Pricing", href: "" },
-  { name: "Contact", href: "" },
+  { name: "About Us", href: "#" },
+  { name: "Services", href: "#" },
+  { name: "Reviews", href: "#" },
+  { name: "Pricing", href: "#" },
+  { name: "Contact", href: "#" },
 ];
 
 export default function Header() {
@@ -69,7 +69,7 @@ export default function Header() {
       {/* Mobile Menu Overlay */}
       {open && (
         <div className="absolute top-16 left-0 w-full bg-white border-b border-gray-200 p-6 shadow-xl lg:hidden">
-           {/* ... your mobile nav code ... */}
+           {/* ... mobile nav code ... */}
         </div>
       )}
     </header>

@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "@/src/components/Header";
 import Hero from "@/src/components/Hero";
+import Banner from "@/src/components/Banner";
 import Copy from "@/src/components/Copy";
-import Carousel from "@/src/components/Carousel";
 import WhoWeAre from "@/src/components/WhoWeAre";
 
 const Home = () => {
@@ -10,8 +10,8 @@ const Home = () => {
     <main>
       <Header />
       <Hero />
+      <Banner />
       <Copy />
-      <Carousel />
       <WhoWeAre />
     </main>
   );

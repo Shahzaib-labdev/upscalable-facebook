@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import styles from "@/src/components/anim-button/FancyButton.module.css";
 
 const FancyButton = ({
