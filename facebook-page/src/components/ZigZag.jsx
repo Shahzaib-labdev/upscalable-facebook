@@ -77,7 +77,7 @@ const ZigZag = () => {
       
       {/* SECTION 1: Text Left, Image Right */}
       <section className="py-24 relative">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-50 items-center">
           
           <div className="text-block">
             <p className="anim-reveal text-xs font-jetbrains text-brand-blue font-bold tracking-[0.2em] uppercase mb-4">
@@ -112,7 +112,7 @@ const ZigZag = () => {
 
           <div className="scale-container relative">
             <div className="absolute -inset-4 bg-blue-50/50 rounded-[2.5rem] blur-2xl opacity-50" />
-            <div className="relative aspect-5/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
+            <div className="relative aspect-5/4 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
               <NextImage src={myImage} alt="Marketing Strategy" fill className="object-cover" />
             </div>
           </div>
@@ -121,11 +121,11 @@ const ZigZag = () => {
 
       {/* SECTION 2: Image Left, Text Right (Zigzag) */}
       <section className="py-24 bg-gray-100 relative">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-50 items-center">
           
           <div className="scale-container order-2 lg:order-1 relative">
             <div className="absolute -inset-4 bg-brand-blue/5 rounded-[2.5rem] blur-2xl opacity-50" />
-            <div className="relative aspect-5/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
+            <div className="relative aspect-5/4 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
               <NextImage src={myImage} alt="Growth Strategy" fill className="object-cover" />
             </div>
           </div>
