@@ -80,7 +80,7 @@ const ZigZag = () => {
       </section>
 
       {/* SECTION 2: Image Left, Text Right (Zigzag) */}
-      <section ref={section2Ref} className="py-16 md:py-24 bg-gray-50 overflow-hidden">
+      <section ref={section2Ref} className="py-16 md:py-24 bg-gray-100 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
           
           {/* Image on the left now */}

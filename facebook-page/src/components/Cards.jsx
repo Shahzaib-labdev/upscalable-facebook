@@ -69,7 +69,7 @@ const Cards = () => {
 
   return (
     /* Change background from pure white to a near-white neutral to increase contrast on hover */
-    <section ref={sectionRef} className="py-24 bg-[#fcfcfc]">
+    <section ref={sectionRef} className="py-24 bg-gray-100">
       <div className="max-w-7xl mx-auto px-6">
         
         {/* Heading */}

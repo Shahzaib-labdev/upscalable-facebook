@@ -37,7 +37,7 @@ export default function Header() {
         </div>
 
         {/* Center: Navigation (Dead Center) */}
-        <nav className="hidden lg:flex justify-center items-center gap-8 font-jetbrains text-sm tracking-wide text-black">
+        <nav className="hidden lg:flex justify-center items-center gap-10 font-jetbrains text-sm tracking-wide text-black">
           {navLinks.map((link) => (
             <Link key={link.name} href={link.href} className="hover:text-brand-blue transition-colors">
               {link.name}
