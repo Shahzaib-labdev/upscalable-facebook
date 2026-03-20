@@ -112,7 +112,7 @@ const ZigZag = () => {
 
           <div className="scale-container relative">
             <div className="absolute -inset-4 bg-blue-50/50 rounded-[2.5rem] blur-2xl opacity-50" />
-            <div className="relative aspect-4/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
+            <div className="relative aspect-5/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
               <NextImage src={myImage} alt="Marketing Strategy" fill className="object-cover" />
             </div>
           </div>
@@ -125,7 +125,7 @@ const ZigZag = () => {
           
           <div className="scale-container order-2 lg:order-1 relative">
             <div className="absolute -inset-4 bg-brand-blue/5 rounded-[2.5rem] blur-2xl opacity-50" />
-            <div className="relative aspect-4/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
+            <div className="relative aspect-5/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
               <NextImage src={myImage} alt="Growth Strategy" fill className="object-cover" />
             </div>
           </div>
