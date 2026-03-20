@@ -4,6 +4,7 @@ import Banner from "@/src/components/Banner";
 import ZigZag from "@/src/components/ZigZag";
 import Timeline from "@/src/components/Timeline";
 import Cards from "@/src/components/Cards";
+import Footer from "@/src/components/Footer";
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
       <ZigZag />
       <Timeline />
       <Cards />
+      <Footer />
     </main>
   );
 };
