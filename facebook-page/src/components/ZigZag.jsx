@@ -3,76 +3,116 @@
 import React, { useEffect, useRef } from "react";
 import NextImage from "next/image";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
 import myImage from "./images/fbook.jpg";
-import scrollTrigger from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ZigZag = () => {
-  const section1Ref = useRef(null);
-  const section2Ref = useRef(null);
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    gsap.registerPlugin(scrollTrigger);
-    // Entrance animation for both sections
-    const sections = [section1Ref.current, section2Ref.current];
-    
-    sections.forEach((section) => {
-      if (section) {
-        gsap.from(section.querySelectorAll(".anim-item"), {
-          y: 40,
+    const ctx = gsap.context(() => {
+      // 1. Image "Scale-Up" Entrance
+      gsap.utils.toArray(".scale-container").forEach((container) => {
+        gsap.fromTo(container, 
+          { scale: 0.9, opacity: 0 },
+          { 
+            scale: 1, 
+            opacity: 1, 
+            duration: 1, 
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: container,
+              start: "top 85%",
+              once: true
+            }
+          }
+        );
+      });
+
+      // 2. Text "Stagger" Entrance
+      gsap.utils.toArray(".text-block").forEach((block) => {
+        gsap.from(block.querySelectorAll(".anim-step"), {
+          y: 30,
           opacity: 0,
-          stagger: 0.2,
-          duration: 1,
-          ease: "power3.out",
+          stagger: 0.1,
+          duration: 0.8,
+          ease: "power2.out",
           scrollTrigger: {
-            trigger: section,
+            trigger: block,
             start: "top 80%",
+            once: true
           }
         });
-      }
-    });
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
-  return (
-    <div className="bg-white">
-      {/* SECTION 1: Text Left, Image Right */}
-      <section ref={section1Ref} className="py-16 md:py-24 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
-          
-          <div className="anim-item">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-              Why Facebook Advertising <br />
-              <span className="bg-brand-blue text-white px-2 py-1">Still Wins in 2026</span>
-            </h2>
-            <div className="mt-8 space-y-6 antialised">
-              <div className="flex gap-4">
-                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
-                <p className="text-gray-600">
-                  <strong className="text-gray-900 block">Precision Targeting</strong>
-                  Reaching the demographic that mirrors your highest-value customers.
-                </p>
-              </div>
-            
-              <div className="flex gap-4">
-                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
-                <p className="text-gray-600">
-                  <strong className="text-gray-900 block">Creative Velocity</strong>
-                  Rapid testing of visual assets to identify winners before wasting budget.
-                </p>
-              </div>
+  const StepItem = ({ title, desc }) => (
+    <div className="anim-step flex gap-6 group">
+      <div className="flex flex-col items-center">
+        {/* Node: Black/White -> Blue/White on Hover */}
+        <div className="w-10 h-10 shrink-0 rounded-xl bg-black flex items-center justify-center text-white group-hover:bg-brand-blue transition-colors duration-300 shadow-lg">
+          <ArrowUpRight size={18} strokeWidth={2.5} />
+        </div>
+        <div className="w-px h-full bg-gray-100 mt-2" />
+      </div>
+      <div className="pb-8">
+        <h4 className="font-extrabold text-gray-950 text-lg uppercase tracking-tight leading-none mb-2">
+          {title}
+        </h4>
+        <p className="text-gray-500 text-sm font-medium leading-relaxed">
+          {desc}
+        </p>
+      </div>
+    </div>
+  );
 
-              <div className="flex gap-4">
-                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
-                <p className="text-gray-600">
-                  <strong className="text-gray-900 block">Data-Driven Attribution</strong>
-                  Understanding exactly where every dollar goes and what it returns.
-                </p>
-              </div>
+  return (
+    <div ref={containerRef} className="bg-white overflow-hidden">
+      
+      {/* SECTION 1: Text Left, Image Right */}
+      <section className="py-24 relative">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+          
+          <div className="text-block">
+            <p className="anim-reveal text-xs font-jetbrains text-brand-blue font-bold tracking-[0.2em] uppercase mb-4">
+              Market Intelligence
+            </p>
+            <h2 className="anim-reveal text-4xl md:text-5xl font-extrabold tracking-tight text-brand-gray-dark leading-tight mb-8">
+              Why Facebook Ads <br />
+              <span className="relative inline-block text-brand-blue">
+                Still Wins in 2026
+                <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-brand-blue/20 rounded-full" />
+              </span>
+            </h2>
+            
+            <div className="space-y-6">
+              {[
+                { title: "Precision Targeting", desc: "Reaching the exact demographic that mirrors your winners." },
+                { title: "Creative Velocity", desc: "Identify winning assets before burning through budget." },
+                { title: "ROI Attribution", desc: "Full transparency on every dollar spent and lead gained." }
+              ].map((item, i) => (
+                <div key={i} className="anim-reveal flex gap-5 group items-start">
+                  <div className="w-10 h-10 shrink-0 rounded-xl bg-black flex items-center justify-center text-white group-hover:bg-brand-blue transition-colors duration-300 shadow-lg">
+                    <ArrowUpRight size={18} strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-950 text-lg tracking-tight uppercase">{item.title}</h4>
+                    <p className="text-gray-500 text-sm font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
-          <div className="anim-item relative aspect-square w-full max-w-125 lg:ml-auto">
-            <div className="absolute inset-0 bg-blue-50 rounded-3xl -rotate-3 scale-105" />
-            <div className="relative h-full w-full rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
+          <div className="scale-container relative">
+            <div className="absolute -inset-4 bg-blue-50/50 rounded-[2.5rem] blur-2xl opacity-50" />
+            <div className="relative aspect-4/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
               <NextImage src={myImage} alt="Marketing Strategy" fill className="object-cover" />
             </div>
           </div>
@@ -80,47 +120,44 @@ const ZigZag = () => {
       </section>
 
       {/* SECTION 2: Image Left, Text Right (Zigzag) */}
-      <section ref={section2Ref} className="py-16 md:py-24 bg-gray-100 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-24 bg-gray-100 relative">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
           
-          {/* Image on the left now */}
-          <div className="anim-item relative aspect-square w-full max-w-125 order-2 lg:order-1">
-            <div className="absolute inset-0 bg-blue-100 rounded-3xl rotate-3 scale-105" />
-            <div className="relative h-full w-full rounded-3xl overflow-hidden shadow-2xl border-8 border-white">
-              <NextImage src={myImage} alt="Creative Velocity" fill className="object-cover" />
+          <div className="scale-container order-2 lg:order-1 relative">
+            <div className="absolute -inset-4 bg-brand-blue/5 rounded-[2.5rem] blur-2xl opacity-50" />
+            <div className="relative aspect-4/5 rounded-4xl overflow-hidden shadow-2xl border-8 border-white">
+              <NextImage src={myImage} alt="Growth Strategy" fill className="object-cover" />
             </div>
           </div>
 
-          {/* Text on the right now */}
-          <div className="anim-item order-1 lg:order-2">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-              Our Framework: <br /> From Optimization to <br />
-              <span className="text-blue-600">Domination</span>
+          <div className="text-block order-1 lg:order-2">
+            <p className="anim-reveal text-xs font-jetbrains text-brand-blue font-bold tracking-[0.2em] uppercase mb-4">
+              Our Blueprint
+            </p>
+            <h2 className="anim-reveal text-4xl md:text-5xl font-extrabold tracking-tight text-brand-gray-dark leading-tight mb-8">
+              The Upscalable <br />
+              <span className="relative inline-block text-brand-blue">
+                Framework
+                <span className="absolute -bottom-1 left-0 w-full h-0.75 bg-brand-blue/20 rounded-full" />
+              </span>
             </h2>
-            <div className="mt-8 space-y-6 antialised">
-              <div className="flex gap-4">
-                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
-                <p className="text-gray-600">
-                  <strong className="text-gray-900 block">Algorithmic Optimization</strong>
-                  Letting machine learning do the heavy lifting for audience refinement.
-                </p>
-              </div>
-            
-              <div className="flex gap-4">
-                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
-                <p className="text-gray-600">
-                  <strong className="text-gray-900 block">Omnichannel Integration</strong>
-                  Syncing your Facebook efforts with Instagram and Messenger for a seamless brand experience.
-                </p>
-              </div>
 
-              <div className="flex gap-4">
-                <div className="shrink-0 w-1 bg-blue-600 rounded-full" />
-                <p className="text-gray-600">
-                  <strong className="text-gray-900 block">ROI-First Mindset</strong>
-                  Every campaign is measured by its contribution to your specific business goals, not just vanity metrics.
-                </p>
-              </div>
+            <div className="space-y-6">
+              {[
+                { title: "Algorithmic Optimization", desc: "Letting machine learning handle the audience heavy lifting." },
+                { title: "Omnichannel Sync", desc: "Integrating FB, Instagram, and Messenger for seamless growth." },
+                { title: "ROI-First Mindset", desc: "Focusing on bottom-line results over vanity metrics." }
+              ].map((item, i) => (
+                <div key={i} className="anim-reveal flex gap-5 group items-start">
+                  <div className="w-10 h-10 shrink-0 rounded-xl bg-black flex items-center justify-center text-white group-hover:bg-brand-blue transition-colors duration-300 shadow-lg">
+                    <ArrowUpRight size={18} strokeWidth={2.5} />
+                  </div>
+                  <div>
+                    <h4 className="font-bold text-gray-950 text-lg tracking-tight uppercase">{item.title}</h4>
+                    <p className="text-gray-500 text-sm font-medium leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 
